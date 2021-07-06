@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div th:replace="layout/template-layout2 :: headerAsset"></div>
+
+<!--Navbar-->
+<nav th:replace="layout/template-layout2 :: navbar"></nav>
+
+<!--Content-->
+
+<div class="container">
+    <div class="row ">
+        <div class="col-12">
+            <div class="card mt-4">
+                <div class="card-header d-flex align-items-center">
+                    <div class="w-100 d-flex justify-content-between align-items-center">
+                        <h5>Employee Table</h5>
+                        <a th:href="@{/register}" class="btn btn-sm btn-success">Add New</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table  class="table">
+                        <thead>
+                            <tr>
+                                <td>No</td>
+                                <td>Employee ID</td>
+                                <td>First Name</td>
+                                <td>Last Name</td>
+                                <td>Gender</td>
+                                <td>Birth Date</td>
+                                <td>Address</td>
+                                <td>Phone</td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr th:each="employee : ${employees}">
+                                <td th:text="${employeeStat.index+1}"></td>
+                                <td th:text="${employee.id}"></td>
+                                <td th:text="${employee.firstName}"></td>
+                                <td th:text="${employee.lastName}"></td>
+                                <td th:text="${employee.gender}"></td>
+                                <td th:text="${employee.birthDate}"></td>
+                                <td th:text="${employee.address}"></td>
+                                 <td th:text="${employee.phone}"></td>
+                                <!--<td th:text="${#dates.format(employee.birthDate, 'dd/MMM/yyyy HH:mm')}"></td>-->
+                            </tr>
+                            <!--                                <td th:text="${person.gender}"></td>
+                                                            <td>
+                                                                <a th:href="@{/person/{id}(id=${person.id})}" class="btn btn-sm btn-primary">Detail</a>
+                                                                <a th:href="@{/person/{id}/update(id=${person.id})}" class="btn btn-sm btn-warning">Update</a>
+                                                                <a th:href="@{/person/{id}/delete(id=${person.id})}" class="btn btn-sm btn-danger">Delete</a>
+                                                            </td>
+                                                        </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="layout/template-layout2 :: asset"></div>
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Person Form - KSM Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Person Form</h1>
+        <form th:action="@{/person/{id}/update (id=${person.id})}" th:object="${person}" method="POST">
+            <label>First Name</label><br>
+            <input type="text" name="firstName" id="firstName" th:field="*{firstName}"/>
+            <br>
+            <label>Last Name</label><br>
+            <input type="text" name="lastName" id="lasttName" th:field="*{lastName}"/><br>
+            <button type="submit">Update</button>
+        </form>
+    </body>
+</html>

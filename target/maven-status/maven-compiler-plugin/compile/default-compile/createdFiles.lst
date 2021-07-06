@@ -1,0 +1,13 @@
+com\ksm\services\PersonService$1.class
+com\ksm\config\RestConfig.class
+com\ksm\models\Person.class
+com\ksm\services\LoginService.class
+com\ksm\KsmApplication.class
+com\ksm\models\LoginResponse.class
+com\ksm\services\PersonService.class
+com\ksm\config\WebSecurityConfig.class
+com\ksm\models\Register.class
+com\ksm\controllers\PersonController.class
+com\ksm\models\LoginRequest.class
+com\ksm\services\PersonService$2.class
+com\ksm\controllers\LoginController.class

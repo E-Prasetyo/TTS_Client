@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div th:replace="layout/template-layout2 :: headerAsset"></div>
+
+<!--Navbar-->
+<nav th:replace="layout/template-layout2 :: navbar"></nav>
+
+<!--Content-->
+<div class="container">
+    <div class="row ">
+        <div class="col-12">
+            <div class="card mt-4">
+                <div class="card-header d-flex align-items-center">
+                    <div class="w-100 d-flex justify-content-center align-items-center">
+                        <h5>Register Form</h5>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form class="needs-validation" novalidate th:action="@{/register}" th:object="${register}" method="POST">
+
+                        <div class="input-group mb-3">
+                            <label class="me-4">EmployeeID</label>
+                            <input type="text" class="form-control" name="id" id="id" th:field="*{id}" required/>
+                            <div class="invalid-feedback">
+                                Employee ID harus diisi.
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label class="me-4">First Name</label>&nbsp;&nbsp;
+                            <input type="text" class="form-control" name="firstName" id="firstName" th:field="*{firstName}" required/>
+                            <div class="invalid-feedback">
+                                First Name harus diisi.
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label class="me-4">Last Name</label>&nbsp;&nbsp;
+                            <input type="text" class="form-control" name="lastName" id="lastName" th:field="*{lastName}" required/>                                    
+                            <div class="invalid-feedback">
+                                Last name haru diisi.
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label class="me-5">Address</label>
+                            <input type="text" class="form-control" name="address" id="address" th:field="*{address}" required/>                                    
+                            <div class="invalid-feedback">
+                                Address name haru diisi.
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label class="me-5">Phone</label>&nbsp;&nbsp;
+                            <input type="text" class="form-control" name="phone" id="phone" th:field="*{phone}" required/>                                    
+                            <div class="invalid-feedback">
+                                Phone name haru diisi.
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label class="me-5">Date</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="date" class="form-control" name="date" id="date" th:field="*{date}" required/>                                    
+                            <div class="invalid-feedback">
+                                Date name haru diisi.
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label class="me-5">Gender</label>
+                            <!--dropdown-->
+                            <select class="form-select" name="gender" th:field="*{gender}" required>
+                                <option selected disabled value="">Choose Gender</option>
+                                <option value="PRIA" th:text="MALE"></option>
+                                <option value="WANITA" th:text="FEMALE"></option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Gender harus diisi.
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label class="me-5">E-mail</label>&nbsp;&nbsp;
+                            <input type="email" class="form-control" name="email" id="email" th:field="*{email}" required/>                                    
+                            <div class="invalid-feedback">
+                                E-Mail name haru diisi.
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label class="me-4">Password</label>&nbsp;&nbsp;
+                            <input type="password" class="form-control" name="password" id="password" th:field="*{password}" required/>                                    
+                            <div class="invalid-feedback">
+                                Password name haru diisi.
+                            </div>
+                        </div>
+
+                            <button type="submit" class="btn btn-sm btn-primary">Register Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="layout/template-layout2 :: asset"></div>
