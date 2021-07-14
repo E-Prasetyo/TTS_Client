@@ -28,19 +28,21 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
     
-//    @GetMapping("/login")
-//    public String login() {
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        String result = "";
-//        if(auth.getPrincipal().equals("anonymousUser")) {
-//            result =  "login";
-//        } else {
-//            result =  "redirect:/dashboard";
-//        }
-//        
-//        return result;
-//    }
-//    
+    @GetMapping("/login")
+    public String login(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String result = "";
+        if(auth.getPrincipal().equals("anonymousUser")) {
+            model.addAttribute("login",new LoginRequest());
+            model.addAttribute("title", "KSM - Login");
+            result =  "login";
+        } else {
+            result =  "redirect:/dashboard";
+        }
+        
+        return result;
+    }
+    
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
          model.addAttribute("toPage", "/dashboard");
@@ -70,7 +72,10 @@ public class LoginController {
     @PostMapping("/register")
     public String registerProcess(@ModelAttribute Register register) {
         Boolean b = loginService.register(register);
-        return "redirect:/login";
+        if (b == true) {
+            return "redirect:/login";    
+        }
+        return "register";
     }
    
 }
